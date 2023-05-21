@@ -1,0 +1,88 @@
+﻿@model ASPPresentationLayer.Models.ProductChangeViewModel;
+@{
+    ViewData["Title"] = "Productaantallen wijzigen";
+}
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body class="text-center">
+    <p class="Error">@ViewBag.Info</p>
+    <form method="post" asp-controller="Product" asp-action="Change" class="scrollable">
+
+       
+        @for (var i = 0; i < Model.Products.Count; i++)
+        {
+            <div class="ProductBox">
+                        <p style="display:inline" class="left">@Model.Products[i].Name</p> <p class="right" style="display:inline" id="HuidigAmount_@i"></p> 
+                    </div>
+                    <div style="clear: both;"></div>
+                    
+                    <input type="hidden" asp-for="Products[i].ID" value="@Model.Products[i].ID" />
+                    <input type="hidden" asp-for="Products[i].Name" value="@Model.Products[i].Name" />
+                
+               
+                    <div class="left" style="display:flex">
+                        <input id="hiddenAmount_@i" type="hidden" value="@Model.Products[i].Amount">
+                        <input id="editAmount_@i" type="number" min="0" max="500" step="1" asp-for="Amounts[i]" value="@Model.Amounts[i]"/>
+                    
+
+                  
+                        <select id="selectOperator_@i" class="form-control ComboBox" name="AddSubtract" asp-for="AddSubtract[i]">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 0px; height: 55.38px;" class="ProductBox right SizeNieuwBox">
+                        <p style="margin-right: 20px;" id="NieuwAmount_@i"></p>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+        }
+         <div>
+             <button style="margin-bottom: 60px;" type="submit" class="submitBtn right" >Opslaan</button>
+         </div>  
+         
+            
+       
+    </form>
+
+    <script>
+        updateAmount();
+        for (let i = 0; i < 50; i++) {
+            $("#editAmount_" + i.toString()).on("input", updateAmount)
+            $(".left select").on("change", updateAmount)
+            
+        }
+
+        function updateAmount() {
+            for (let i = 0; i < 50; i++) {
+                const plusMinus = $("#selectOperator_" + i.toString() + " option:selected").val()
+                var outcome = 0;
+                if (plusMinus == "+") {
+                    outcome = parseInt($("#hiddenAmount_" + i.toString()).val()) + parseInt($("#editAmount_" + i.toString()).val())
+                } else {
+                    outcome = parseInt($("#hiddenAmount_" + i.toString()).val()) - parseInt($("#editAmount_" + i.toString()).val())
+                }
+
+                if (outcome < 0) {
+                    $("#editAmount_" + i.toString()).addClass("Error");
+                    $("#selectOperator_" + i.toString()).addClass("Error");
+                    $("#NieuwAmount_" + i.toString()).addClass("Error");
+                    $('.sendBtn').prop('disabled', true);
+                } else {
+                    $("#editAmount_" + i.toString()).removeClass("Error");
+                    $("#selectOperator_" + i.toString()).removeClass("Error");
+                    $("#NieuwAmount_" + i.toString()).removeClass("Error");
+                    $('.sendBtn').prop('disabled', false);
+                }
+
+                $("#HuidigAmount_" + i.toString()).text("huidig: " + $("#hiddenAmount_" + i.toString()).val());
+                $("#NieuwAmount_" + i.toString()).text("nieuw: " + outcome.toString());
+            }
+            
+        }
+    </script>
+</body>

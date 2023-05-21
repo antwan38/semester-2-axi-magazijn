@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Gebruikers beheren";
+}
+
+<div>
+    <p style="margin: var(--topleft-margin)">Lijst met gebruikers momenteel niet beschikbaar.</p>
+    @*<a asp-controller="Branch" asp-action="NotImplemented">
+        <input type="button" class="btn btn-primary navBtn smallBtn" value="Geselecteerde verwijderen" />
+    </a>
+    <a asp-controller="Branch" asp-action="NotImplemented">
+        <input type="button" class="btn btn-primary navBtn smallBtn" value="Geselecteerde bewerken" />
+    </a>*@
+    <a asp-controller="User" asp-action="SignUp">
+        <input type="button" class="btn btn-primary navBtn" value="Nieuw registreren..." />
+    </a>
+</div>

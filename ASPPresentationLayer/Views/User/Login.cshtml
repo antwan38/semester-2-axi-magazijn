@@ -1,0 +1,40 @@
+﻿@model Presentation.Models.LoginModel;
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+ <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid horizontalnavbar">
+                <a><img style="margin-left: -82px; width: 140px;" class="logo" src="/img/logo.svg"></a>
+            <div class="Center-Headtext">
+                <h1 style="margin-top: -10px;">Magazijnsysteem</h1>           
+                </div>
+            </div>
+</nav>
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+
+<div class="fields">
+    <form asp-action="Login">
+        <h1>Log in</h1>
+        <br />
+        <div class="form-group">
+            <div class="label" asp-for="Email" style="background: none; box-shadow: none;">Email-adres</div>
+            <input type="email" placeholder="voorbeeld@email.nl" asp-for="Mail" />
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="label" asp-for="Password" style="background: none; box-shadow: none;">Wachtwoord</div>
+            <input asp-for="Password" type="password" />
+        </div>
+
+        <div class="Error">
+            @Html.ValidationMessageFor(m => m.Mail)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <input type="submit" value="Login" class="btn btn-primary d-block w-100 submitBtn" />
+    </form>
+</div>

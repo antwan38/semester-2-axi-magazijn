@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Vestiging selecteren";
+}
+
+@model List<ASPPresentationLayer.Models.BranchViewModel>
+
+<body>
+    <div class="scrollable">
+        <h2>Selecteer een vestiging voor dit product</h2>
+        @foreach (BranchViewModel branch in Model)
+        {
+            if (ViewBag.ValidBranchIDs.Contains(branch.ID))
+            {
+                <a asp-controller="Product" asp-action="Add" asp-route-branchId="@branch.ID">
+                    <input type="button" class="btn btn-primary navBtn smallBtn" value="@branch.PlaceName" />
+                </a>
+            }
+            else
+            {
+                <div class="Error">
+                    <input type="button" class="btn btn-primary navBtn smallBtn" value="@branch.PlaceName" disabled />
+                    <p style="font-size: 15px; margin-left:35px;">Deze vestiging heeft geen locaties. Maak <a asp-action="Add" asp-controller="Location">hier</a> een nieuwe locatie aan voor deze vestiging.</p>
+                </div>
+            }
+            <br />
+        }
+        <br /><br />
+    </div>
+</body>

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Locatie Toevoegen";
+}
+@model LocationViewModel;
+<body>
+    <div class="fields">
+        <form method="post" asp-controller="Location" asp-action="AddLocation">
+            <div class="form-group">
+                <div class="label" asp-for="LocationNumber">Nummer</div>
+                <input type="text" asp-for="LocationNumber" />
+            </div>
+            <br/>
+            <div class="form-group">
+                <div class="label" asp-for="Branch.ID">Vestiging</div>
+                <select class="form-control" asp-for="Branch.ID">
+
+                    @foreach (BranchViewModel branch in ViewBag.Branches)
+                    {
+                        <option value="@branch.ID">@branch.PlaceName</option>
+                    }
+                </select>
+            </div>
+            <br/>
+            <div class="form-group">
+                <div class="label" asp-for="MaxCapacity">Capaciteit</div>
+                <input class="form-control" type="number" value="1" min="1" asp-for="MaxCapacity" />
+            </div>
+        <br/>
+      
+        <br/>
+        <br/>
+            <input type="submit" class="btn btn-primary d-block w-100 submitBtn" value="Verzenden"/>
+            <span asp-validation-for="LocationNumber" cass="text-danger"></span>
+        </form>
+    </div>
+</body>

@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="statistics">
+    <h2>
+        Statistieken
+    </h2>
+    <ul style="text-align:start;">
+        <li>
+            <div style="margin-left: 10px">
+            <h3>Top-selling</h3>
+            <h3>1.iPhone 13</h3>
+            <h4>2.Chromebook</h4>
+            <h5>3.Airpods 2</h5>
+            <h6>4.Dyson Airwrap</h6>
+            </div>
+        </li>
+
+        <li>
+            <div style="margin-left: 10px;">
+            <h3>Lege locaties</h3>
+            <br />
+            <br />
+            <br />
+            <h1 style="font-size:70px">31.3%</h1>
+            </div>
+        </li>
+
+        <li>
+             <div style="margin-left: 10px;">
+            <h3>Volgende aanvulling</h3>
+            <br />
+            <br />
+            <br />
+            <h1 style="font-size:70px">2 juni</h1>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="dashboard-menu">
+    @foreach (string message in ViewBag.Info)
+    {
+        @if (ViewBag.Info != null && message.Contains("Fout:"))
+        {
+            <p style="color: darkred">@message</p>
+        }
+        else
+        {
+            <p style="color: darkgreen">@message</p>
+        }
+    }
+    <h2>Welkom @Context.Session.GetString("UserName")</h2>
+    <br />
+
+    <a asp-controller="Product" asp-action="List" style="text-decoration: none;">
+        <button class="btn btn-primary navBtn bigBtn" type="submit">
+            <p>Alle producten bekijken <img src="/img/list.svg" /></p>
+        </button>
+    </a>
+
+    <br />
+    <br />
+    @if (Context.Session.GetInt32("Role") == 1)
+    {
+        <a asp-controller="Dashboard" asp-action="Admin" style="text-decoration: none;">
+            <button class="btn btn-primary navBtn bigBtn" type="submit">
+                <p>Administratie <img src="/img/admin.svg" /></p>
+            </button>
+        </a>
+    }
+</div>

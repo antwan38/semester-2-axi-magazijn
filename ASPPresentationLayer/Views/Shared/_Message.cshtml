@@ -1,0 +1,17 @@
+﻿@model string[]
+@if (Model != null)
+{
+
+    @foreach (string message in Model)
+    {
+        @if (ViewBag.Info != null && message.Contains("Fout:"))
+        {
+            <p style="color: darkred; position: absolute; margin-left: 35px;">@message</p>
+        }
+        else
+        {
+            <p style="color: darkgreen; position: absolute; margin-left: 35px; ">@message</p>
+        }
+    }
+
+}

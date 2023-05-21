@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Vestiging Toevoegen";
+}
+
+@model ASPPresentationLayer.Models.BranchViewModel;
+
+<body>
+    <div class="fields">
+        <form method="post" asp-controller="Branch" asp-action="Add">
+
+            <div class="form-group">
+                <div class="label" asp-for="PlaceName">Plaatsnaam</div>
+                <input class="form-control" type="text" asp-for="PlaceName" />
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="label" asp-for="StreetName">Straat</div>
+                <input class="form-control" type="text" asp-for="StreetName" />
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="label" asp-for="HouseNumber">Huisnummer</div>
+                <input class="form-control" type="text" asp-for="HouseNumber" />x
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="label" asp-for="PostalCode">Postcode</div>
+                <input class="form-control" type="text" asp-for="PostalCode" />
+            </div>
+            <br />
+
+            <div class="mb-3"><button class="btn btn-primary d-block w-100 submitBtn" type="submit">Voeg toe</button></div>
+
+            <span asp-validation-for="PlaceName" class="text-danger"></span>
+            <span asp-validation-for="StreetName" class="text-danger"></span>
+            <span asp-validation-for="StreetName" class="text-danger"></span>
+            <span asp-validation-for="PostalCode" class="text-danger"></span>
+        </form>
+
+
+    </div>
+</body>
