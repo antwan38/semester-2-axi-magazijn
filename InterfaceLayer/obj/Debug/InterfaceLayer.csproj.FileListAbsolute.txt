@@ -1,0 +1,6 @@
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\InterfaceLayer\bin\Debug\InterfaceLayer.dll
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\InterfaceLayer\bin\Debug\InterfaceLayer.pdb
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\InterfaceLayer\obj\Debug\InterfaceLayer.csproj.AssemblyReference.cache
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\InterfaceLayer\obj\Debug\InterfaceLayer.csproj.CoreCompileInputs.cache
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\InterfaceLayer\obj\Debug\InterfaceLayer.dll
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\InterfaceLayer\obj\Debug\InterfaceLayer.pdb

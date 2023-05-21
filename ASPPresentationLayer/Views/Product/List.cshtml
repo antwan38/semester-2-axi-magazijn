@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewData["Title"] = "Productenlijst";
+}
+@model List<ASPPresentationLayer.Models.ProductViewModel>
+
+<form method="post" xasp-controller="Post">
+
+    <div class="search-box">
+        <input style="width: 858px;" type="text" placeholder="Zoek een product..." name="nameToSearch" value="@ViewBag.SearchTerm">
+        <input type="image" asp-action="Search" src="/img/search.svg" />
+    </div>
+
+    <div class="filters">
+        <p>
+            Categorie:
+            <select class="form-control" name="filterCategory" style="width: 318px;">
+                @{
+                    if (ViewBag.Filter == null)
+                    {
+                        <option value="Geen">Geen</option>
+                        foreach (CategoryViewModel category in ViewBag.Categories)
+                        {
+                            <option value="@category.Name">@category.Name</option>
+                        }
+                    }
+                    else
+                    {
+                        if (@ViewBag.Filter != "Geen")
+                        {
+                            <option value="@ViewBag.Filter">@ViewBag.Filter</option>
+                            <option value="Geen">Geen</option>
+                            foreach (CategoryViewModel category in ViewBag.Categories)
+                            {
+                                <option value="@category.Name">@category.Name</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="@ViewBag.Filter">@ViewBag.Filter</option>
+                            foreach (CategoryViewModel category in ViewBag.Categories)
+                            {
+                                <option value="@category.Name">@category.Name</option>
+                            }
+                        }
+                    }
+                }
+
+            </select>
+            Vestiging:
+            <select class="form-control" name="filterBranch" style="width: 318px;">
+                @{
+                    if (ViewBag.FilterL == null)
+                    {
+                        <option value="Geen">Geen</option>
+                        foreach (BranchViewModel Branch in ViewBag.Branch)
+                        {
+                            <option value="@Branch.PlaceName">@Branch.PlaceName</option>
+                        }
+                    }
+                    else
+                    {
+                        if (@ViewBag.FilterL != "Geen")
+                        {
+                            <option value="@ViewBag.FilterL">@ViewBag.FilterL</option>
+                            <option value="Geen">Geen</option>
+                            foreach (BranchViewModel Branch in ViewBag.Branch)
+                            {
+                                <option value="@Branch.PlaceName">@Branch.PlaceName</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="@ViewBag.FilterL">@ViewBag.FilterL</option>
+                            foreach (BranchViewModel Branch in ViewBag.Branch)
+                            {
+                                <option value="@Branch.PlaceName">@Branch.PlaceName</option>
+                            }
+                        }
+                    }
+                }
+            </select>
+        </p>
+    </div>
+    
+</form>
+
+<partial model="@ViewBag.Info" name="_Message">
+    @if (Model.Count > 0)
+    {
+
+        <form method="post" asp-controller="Product">
+            <partial id="partialview" name="_ProductList" model="@Model">
+                <input class="navBtn" type="submit" value="Aantal wijzigen van geselecteerde producten" asp-action="Edit" />
+        </form>
+    }
+    else
+    {
+        <label style="font-style:italic; margin: var(--topleft-margin)">Er zijn geen producten gevonden...</label>
+    }
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">$("#searchBox").keydown(function () {
+            alert("pass");
+            RefreshPartial();
+        });
+
+        function RefreshPartial() {
+            alert("Function executed");
+
+            $.ajax({
+                url: '/Product/ListPartial',
+                data: { term: "hello" },
+                type: "POST",
+                success: function () {
+                    alert('Added');
+                }
+            });
+        }</script>

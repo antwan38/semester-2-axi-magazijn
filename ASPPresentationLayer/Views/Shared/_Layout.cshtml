@@ -1,0 +1,85 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AXI Magazijnsysteem</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ASPPresentationLayer.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container-fluid horizontalnavbar">
+                    <a asp-action="Index" asp-controller="Dashboard"><img class="logo" src="/img/logo.svg"></a>
+                    <h1 id="title">@ViewData["Title"]</h1>
+
+                    <div id="user">
+                        <p>
+                            <img src="https://media.tarkett-image.com/large/TH_25094221_25187221_001.jpg" />
+                            @Context.Session.GetString("UserName")
+                        </p>
+                    </div>
+                    <a asp-controller="User" asp-action="LogOut">
+                        <img src="/img/logout.svg" style="margin-right: 20px;" />
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    @*<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                                </li>
+                            </ul>
+                        </div>*@
+                </div>
+                <nav class="verticalnavbar">
+                    <ul class="">
+                        <li>
+                            <a asp-action="Index" asp-controller="Dashboard"> <img src="/img/homeLogo.png" /> </a>
+                        </li>
+                        <li>
+                            <a asp-action="List" asp-controller="Product"> <img src="/img/lijstLogo.png" /> </a>
+                        </li>
+                    
+                        @if (Context.Session.GetInt32("Role") == 1)
+                        {
+                            <li>
+                                <a asp-action="Index" asp-controller="Product"> <img src="/img/boxLogo.png" /> </a>
+                            </li>
+                            <li>
+                                <a asp-action="Index" asp-controller="Location"> <img src="/img/locatieLogo.png" /> </a>
+                            </li>
+                            <li>
+                                <a asp-action="Index" asp-controller="Category"> <img src="/img/Category.png" /> </a>
+                            </li>
+                            <li>
+                                <a asp-action="Index" asp-controller="Branch"> <img src="/img/vestegingLogo.png" /> </a>
+                            </li>
+                            <li>
+                                <a asp-action="Index" asp-controller="User"> <img src="/img/mensenLogo.png" /> </a>
+                            </li>
+                        }
+
+                </ul>
+            </nav>
+        </header>
+        <div class="container mainview">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

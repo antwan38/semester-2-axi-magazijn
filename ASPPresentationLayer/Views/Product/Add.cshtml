@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Product Toevoegen";
+}
+
+@model ASPPresentationLayer.Models.ProductViewModel;
+
+<body>
+<partial name="_Message" model="@ViewBag.Info" />
+    <div class="fields">
+        <form method="post" asp-controller="Product" asp-action="Add">
+
+            <div class="form-group">
+                <div class="label" asp-for="Name">Naam</div>
+                <input class="form-control" type="text" asp-for="Name" />
+            </div>
+            <br />
+            <div class="form-group">
+
+                <div class="label" asp-for="Location">Locatie</div>
+                <select class="form-control" asp-for="Location.ID">
+                    @foreach (LocationViewModel Location in ViewBag.Locations)
+                    {
+                        <option value="@Location.ID">@Location.LocationNumber</option>
+                    }
+                </select>
+                <input type="hidden" asp-for="Location.Branch.ID" value="@Model.Location.Branch.ID" />
+                <input type="hidden" asp-for="Location.Branch.PlaceName" value="temp" />
+                <input type="hidden" asp-for="Location.Branch.HouseNumber" value="temp" />
+                <input type="hidden" asp-for="Location.Branch.PostalCode" value="temp" />
+                <input type="hidden" asp-for="Location.Branch.StreetName" value="temp" />
+                <input type="hidden" asp-for="Location.LocationNumber" value="temp" />
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="label" asp-for="Category">Categorie</div>
+
+                <select class="form-control" asp-for="Category.ID">
+
+                    @foreach (CategoryViewModel category in ViewBag.Categorys)
+                    {
+                        <option value="@category.ID">@category.Name</option>
+                    }
+                </select>
+                @*<a asp-action="Add" asp-controller="Categorie">Of maak een nieuwe categorie aan</a>*@
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="label" asp-for="Amount">Aantal</div>
+                <input class="form-control" type="number" value="1" min="1" asp-for="Amount" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="label" asp-for="Measurements.Length">Lengte <label class="small-label">(cm)</label></div>
+                <input class="form-control shortNum" type="number" value="0" min="0" asp-for="Measurements.Length" />
+                <div class="label" asp-for="Measurements.Width">Breedte <label class="small-label">(cm)</label></div>
+                <input class="form-control shortNum" type="number" value="0" min="0" max="100" asp-for="Measurements.Width" />
+                <div class="label" asp-for="Measurements.Height">Hoogte <label class="small-label">(cm)</label></div>
+                <input class="form-control shortNum" type="number" value="0" min="0" max="100" asp-for="Measurements.Height" />
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="label" asp-for="Barcode">Barcode</div>
+                <input class="form-control" asp-for="Barcode" />
+            </div>
+            <br />
+            <input type="hidden" asp-for="Location.Branch.ID" value="@Model.Location.Branch.ID">
+            @if (ViewBag.Locations.Count > 0)
+            {
+                <div class="mb-3"><button class="btn btn-primary d-block w-100 submitBtn" type="submit">Voeg toe</button></div>
+            }
+            else
+            {
+                <label class="text-danger">De geselecteerde vestiging bevat geen locaties. <a asp-action="SelectBranch" asp-controller="Product">Selecteer een andere vestiging.</a></label>
+                <div class="mb-3"><button class="btn btn-primary d-block w-100 submitBtn" type="submit" disabled>Voeg toe</button></div>
+            }
+
+
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <span asp-validation-for="Location.ID" class="text-danger"></span>
+            <span asp-validation-for="Category.ID" class="text-danger"></span>
+            <span asp-validation-for="Measurements.Length" class="text-danger"></span>
+            <span asp-validation-for="Measurements.Width" class="text-danger"></span>
+            <span asp-validation-for="Measurements.Height" class="text-danger"></span>
+            <span asp-validation-for="Barcode" class="text-danger"></span>
+        </form>
+     
+        
+    </div>
+</body>

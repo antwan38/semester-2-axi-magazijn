@@ -1,0 +1,35 @@
+﻿@model List<ASPPresentationLayer.Models.ProductViewModel>
+<br />
+<table class="product_table" style="margin-left: 73px;">
+    <tr class="header_row">
+        <th class="checkbox_column"></th>
+        <th style="padding-right: 218px;">Product</th>
+        <th style="padding-right: 117px;">Categorie</th>
+        <th style="padding-right: 121px;">Aantal</th>
+        <th style="padding-right: 136px;">Locatie</th>
+    </tr>
+</table>
+<div class="scrollable-table">
+    <table class="product_table">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <tr class="row">
+                <td class="checkbox_column" style="background-color: var(--blank);">
+                    <input type="checkbox" name="checkedProductIDs" value="@Model[i].ID" />
+                </td>
+
+                <td style="width: 362px;">
+                @Model[i].Name</td>
+
+                <td style="width: 294px; background-color: var(--blank);">
+                @Model[i].Category.Name</td>
+
+                <td style="width: 243px;">
+                @Model[i].Amount / @Model[i].Location.MaxCapacity</td>
+
+                <td style="width: 270px; background-color: var(--blank);">
+                @Model[i].Location.LocationNumber (@Model[i].Location.Branch.PlaceName)</td>
+            </tr>
+        }
+    </table>
+</div>

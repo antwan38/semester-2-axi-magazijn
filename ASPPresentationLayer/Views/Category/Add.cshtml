@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Categorie toevoegen";
+}
+@model CategoryViewModel
+
+<body>
+    <div class="fields">
+        <form method="post" asp-controller="Category" asp-action="Add">
+
+            <div class="form-group">
+                <div class="label" asp-for="Name">Naam</div>
+                <input class="form-control" type="text" asp-for="Name" />
+            </div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100 submitBtn" type="submit">Voeg toe</button></div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </form>
+    </div>
+</body>
+
+
+

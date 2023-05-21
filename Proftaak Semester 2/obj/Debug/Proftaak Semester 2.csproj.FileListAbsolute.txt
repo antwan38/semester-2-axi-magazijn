@@ -1,0 +1,15 @@
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\bin\Debug\Proftaak Semester 2.exe.config
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\bin\Debug\Proftaak Semester 2.exe
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\bin\Debug\Proftaak Semester 2.pdb
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak Semester 2.csproj.AssemblyReference.cache
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak Semester 2.csproj.SuggestedBindingRedirects.cache
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak_Semester_2.EditProductForm.resources
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak_Semester_2.Properties.Resources.resources
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak Semester 2.csproj.GenerateResource.cache
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak Semester 2.csproj.CoreCompileInputs.cache
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak Semester 2.exe
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak Semester 2.pdb
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak_Semester_2.AddProductForm.resources
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak_Semester_2.ProductListForm.resources
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak_Semester_2.DashboardForm.resources
+C:\Users\Antwa\OneDrive\Documenten\school ict\software\repos\proftaak-semeseter-2\Proftaak Semester 2\Proftaak Semester 2\obj\Debug\Proftaak_Semester_2.DeleteProductForm.resources
